@@ -12,11 +12,15 @@ nano /etc/systemd/system/prusalink_mqtt_bridge.service
 [Unit]
 Description=PrusaLink MQTT Bridge
 After=syslog.target network.target
+
 [Service]
 Type=simple
 ExecStart=/bin/bash /home/pi/bin/co2watcher/start-prusalink_mqtt_bridge.sh
 User=pi
 LimitMEMLOCK=33554432
+Restart=on-failure
+RestartSec=5s # Waits 5 seconds before restarting the service
+
 [Install]
 WantedBy=multi-user.target
 ```

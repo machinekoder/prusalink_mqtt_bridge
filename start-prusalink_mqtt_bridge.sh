@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 if [ ! "$BASH_VERSION" ]; then
     echo "Warning: this script should be executed with bash"
     exec /bin/bash "$0"

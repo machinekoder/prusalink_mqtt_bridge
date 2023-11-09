@@ -88,7 +88,8 @@ class PrusaLinkMQTTForwarder:
         try:
             next_run_time = time.time() + self.update_interval
             while True:
-                if printer_data := self.get_printer_data("/api/v1/status"):
+                printer_data = self.get_printer_data("/api/v1/status")
+                if printer_data:
                     # Extract the 'printer' and 'job' data from the response
                     printer_info = printer_data.get("printer")
                     job_info = printer_data.get("job")
