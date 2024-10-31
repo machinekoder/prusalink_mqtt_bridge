@@ -33,7 +33,7 @@ class PrusaLinkMQTTForwarder:
         self.http_auth = (http_username, http_password)
         self.update_interval = update_interval_s
         self.http_timeout = http_timeout
-        self.mqtt_client = mqtt_client.Client("prusa_link_mqtt_bridge")
+        self.mqtt_client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION1, "prusa_link_mqtt_bridge")
 
         # Set up MQTT authentication
         self.mqtt_client.username_pw_set(mqtt_username, mqtt_password)
